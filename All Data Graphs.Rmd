@@ -1,0 +1,135 @@
+---
+title: "All Data Graphs"
+author: "Felix Westcott"
+date: "18/11/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(readxl)
+library(xlsx)
+library(dplyr)
+library(ggpubr)
+library(ggsci)
+library(rstatix)
+library (cowplot)
+
+setwd('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF')
+
+All_Data <- read_excel("All Data.xlsx", sheet = 3)
+
+All_Data$FA <- as.factor(All_Data$FA)
+
+```
+
+
+``` {r}
+
+ggbarplot(All_Data, x = "FA", "Protein",
+       add = "mean_se", error.plot = "upper_errorbar", palette = "npg", legend = "none", fill = "FA", xlab = "OPLA Concentration (uM)", ylab = "Protein (mg/mL)") +
+  scale_y_continuous(expand = c(0,0)) +
+theme(axis.text.x = element_text(color = "grey20", size = 16),
+axis.text.y = element_text(color = "grey20", size = 16),
+axis.title.x = element_text(color = "grey20", size = 18),
+axis.title.y = element_text(color = "grey20", size = 18))
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/graphs/Protein.png')
+
+pairwise.test = All_Data %>% 
+  t_test(TAG ~ FA) %>% 
+   adjust_pvalue(method = 'bonferroni')
+
+ggbarplot(All_Data, x = "FA", "TAG",
+       add = "mean_se", error.plot = "upper_errorbar", palette = "npg", legend = "none", fill = "FA", xlab = "OPLA Concentration (uM)", ylab = "Intracellular TAG
+(umol/g of protein)") +
+  scale_y_continuous(expand = c(0,0), limits=c(0, 700)) +
+theme(axis.text.x = element_text(color = "grey20", size = 16),
+axis.text.y = element_text(color = "grey20", size = 16),
+axis.title.x = element_text(color = "grey20", size = 18),
+axis.title.y = element_text(color = "grey20", size = 18)) +
+  stat_pvalue_manual(pairwise.test, label = "p.adj", y.position = 550, step.increase = 0.1)
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/graphs/TAG.png')
+
+ggbarplot(All_Data, x = "FA", "PL",
+       add = "mean_se", error.plot = "upper_errorbar", palette = "npg", legend = "none", fill = "FA", xlab = "OPLA Concentration (uM)", ylab = "Intracellular Phospholipid (umol/g of protein)") +
+  scale_y_continuous(expand = c(0,0)) +
+theme(axis.text.x = element_text(color = "grey20", size = 16),
+axis.text.y = element_text(color = "grey20", size = 16),
+axis.title.x = element_text(color = "grey20", size = 18),
+axis.title.y = element_text(color = "grey20", size = 18))
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/graphs/PL.png')
+
+ggbarplot(All_Data, x = "FA", "Glu",
+       add = "mean_se", error.plot = "upper_errorbar", palette = "npg", legend = "none", fill = "FA",  xlab = "OPLA Concentration (uM)", ylab = "Media Glucose (mmol/g of protein)") +
+  scale_y_continuous(expand = c(0,0)) +
+theme(axis.text.x = element_text(color = "grey20", size = 16),
+axis.text.y = element_text(color = "grey20", size = 16),
+axis.title.x = element_text(color = "grey20", size = 18),
+axis.title.y = element_text(color = "grey20", size = 18))
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/graphs/Glu.png')
+
+ggbarplot(All_Data, x = "FA", "OHB",
+       add = "mean_se", error.plot = "upper_errorbar", palette = "npg", legend = "none", fill = "FA", xlab = "OPLA Concentration (uM)", ylab = "Media 3-OHB (umol/g of protein)") +
+  scale_y_continuous(expand = c(0,0)) +
+theme(axis.text.x = element_text(color = "grey20", size = 16),
+axis.text.y = element_text(color = "grey20", size = 16),
+axis.title.x = element_text(color = "grey20", size = 18),
+axis.title.y = element_text(color = "grey20", size = 18))
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/graphs/OHB.png')
+
+ggbarplot(All_Data, x = "FA", "FrTAG",
+       add = "mean_se", error.plot = "upper_errorbar", palette = "npg", legend = "none", fill = "FA",   xlab = "OPLA Concentration (uM)", ylab = "Media TAG (umol/g of protein)") +
+  scale_y_continuous(expand = c(0,0)) +
+theme(axis.text.x = element_text(color = "grey20", size = 16),
+axis.text.y = element_text(color = "grey20", size = 16),
+axis.title.x = element_text(color = "grey20", size = 18),
+axis.title.y = element_text(color = "grey20", size = 18))
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/graphs/FrTAG.png')
+
+ggbarplot(All_Data, x = "FA", "NEFA",
+       add = "mean_se", error.plot = "upper_errorbar", palette = "npg", legend = "none", fill = "FA",   xlab = "OPLA Concentration (uM)", ylab = "Media NEFA (umol/g of protein)") +
+  scale_y_continuous(expand = c(0,0)) +
+theme(axis.text.x = element_text(color = "grey20", size = 16),
+axis.text.y = element_text(color = "grey20", size = 16),
+axis.title.x = element_text(color = "grey20", size = 18),
+axis.title.y = element_text(color = "grey20", size = 18))
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/graphs/NEFA.png')
+
+ggbarplot(All_Data, x = "FA", "Lac",
+       add = "mean_se", error.plot = "upper_errorbar", palette = "npg", legend = "none", fill = "FA",   xlab = "OPLA Concentration (uM)", ylab = "Media Lactate (mmol/g of protein)") +
+  scale_y_continuous(expand = c(0,0)) +
+theme(axis.text.x = element_text(color = "grey20", size = 16),
+axis.text.y = element_text(color = "grey20", size = 16),
+axis.title.x = element_text(color = "grey20", size = 18),
+axis.title.y = element_text(color = "grey20", size = 18))
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/graphs/Lac.png')
+
+ggbarplot(All_Data, x = "FA", "Urea",
+       add = "mean_se", error.plot = "upper_errorbar", palette = "npg", legend = "none", fill = "FA",   xlab = "OPLA Concentration (uM)", ylab = "Media Urea (mmol/g of protein)") +
+  scale_y_continuous(expand = c(0,0)) +
+theme(axis.text.x = element_text(color = "grey20", size = 16),
+axis.text.y = element_text(color = "grey20", size = 16),
+axis.title.x = element_text(color = "grey20", size = 18),
+axis.title.y = element_text(color = "grey20", size = 18))
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/graphs/Urea.png')
+```
+``` {R}
+setwd('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF')
+
+FA_Uptake <- read_excel("All Data.xlsx", sheet = 4)
+
+FA_Uptake$FA <- as.factor(FA_Uptake$FA)
+
+ggbarplot(FA_Uptake, x = "FA", "FA_Uptake",
+       add = "mean_se", error.plot = "upper_errorbar", palette = "npg", legend = "none", fill = "FA",   xlab = "OPLA Concentration (uM)", ylab = "Fatty Acid Uptake (%)", remove = "OPLA = 0") +
+  scale_y_continuous(expand = c(0,0), limits=c(0, 100)) +
+theme(axis.text.x = element_text(color = "grey20", size = 16),
+axis.text.y = element_text(color = "grey20", size = 16),
+axis.title.x = element_text(color = "grey20", size = 18),
+axis.title.y = element_text(color = "grey20", size = 18))
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/graphs/FA_Uptake.png')
+
+
+```
+

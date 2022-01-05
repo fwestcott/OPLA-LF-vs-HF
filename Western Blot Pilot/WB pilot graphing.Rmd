@@ -1,0 +1,52 @@
+---
+title: "WB pilot Graphing"
+author: "Felix Westcott"
+date: "06/12/2021"
+output: html_document
+---
+
+```{r}
+
+library(tidyverse)
+library(ggplot2)
+library(readxl)
+library(xlsx)
+library(dplyr)
+library(ggpubr)
+library(ggsci)
+library(rstatix)
+library (cowplot)
+
+setwd('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/Western Blot Pilot')
+
+LC_Ratio <- read_excel("LC3 Normalisation and Ratio.xlsx", sheet = 2)
+
+```
+
+``` {R}
+
+ggbarplot(LC_Ratio, "OPLA Concentration (uM)", "LC3-II : LC3-I Ratio", palette = "npg", legend = "none", fill = "OPLA Concentration (uM)") +
+  scale_y_continuous(expand = c(0,0), limits=c(0, 10)) +
+theme(axis.text.x = element_text(color = "grey20", size = 16),
+axis.text.y = element_text(color = "grey20", size = 16),
+axis.title.x = element_text(color = "grey20", size = 18),
+axis.title.y = element_text(color = "grey20", size = 18))
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/Western Blot Pilot/LC3 Ratio.png')
+
+ggbarplot(LC_Ratio, "OPLA Concentration (uM)", "Normalised LC3-I", palette = "npg", legend = "none", fill = "OPLA Concentration (uM)") +
+  scale_y_continuous(expand = c(0,0), limits=c(0, 0.2)) +
+theme(axis.text.x = element_text(color = "grey20", size = 16),
+axis.text.y = element_text(color = "grey20", size = 16),
+axis.title.x = element_text(color = "grey20", size = 18),
+axis.title.y = element_text(color = "grey20", size = 18))
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/Western Blot Pilot/LC3-I.png')
+
+ggbarplot(LC_Ratio, "OPLA Concentration (uM)", "Normalised LC3-II", palette = "npg", legend = "none", fill = "OPLA Concentration (uM)") +
+  scale_y_continuous(expand = c(0,0), limits=c(0, 1.5)) +
+theme(axis.text.x = element_text(color = "grey20", size = 16),
+axis.text.y = element_text(color = "grey20", size = 16),
+axis.title.x = element_text(color = "grey20", size = 18),
+axis.title.y = element_text(color = "grey20", size = 18))
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/Western Blot Pilot/LC3-II.png')
+
+```

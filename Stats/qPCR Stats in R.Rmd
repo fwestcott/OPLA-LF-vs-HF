@@ -1,0 +1,40 @@
+---
+title: "qPCR Stats"
+author: "Felix Westcott"
+date: "17/11/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(readxl)
+library(xlsx)
+library (ggpubr)
+library(car)
+
+setwd('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/qPCR')
+
+All_Data <- read_excel("qPCR Summary.xlsx", sheet = 3)
+
+All_Data$"FA" <- as.factor(All_Data$"FA")
+```
+
+```{r}
+
+All_Data$FA <- factor(All_Data$FA, levels=c("0","200", "800"))
+
+for (i in 2:ncol(All_Data)) {
+   formula <- as.formula(paste(colnames(All_Data)[i], " ~ FA", sep=""))
+   model <- aov(formula, data = All_Data)
+
+   cat("\n-----\n\n")
+   cat(colnames(All_Data)[i])
+   cat("\n")
+   print(summary(model))
+}
+
+```

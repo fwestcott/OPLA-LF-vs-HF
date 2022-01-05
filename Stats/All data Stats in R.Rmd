@@ -1,0 +1,141 @@
+---
+title: "Stats Analysis"
+author: "Felix Westcott"
+date: "17/11/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(readxl)
+library(xlsx)
+library (ggpubr)
+library(car)
+library (rstatix)
+
+setwd('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF')
+
+All_Data <- read_excel("All Data.xlsx", sheet = 3)
+
+All_Data$"FA" <- as.factor(All_Data$"FA")
+```
+
+``` {r}
+
+#Summary data
+
+group_by(All_Data, FA) %>%
+  summarise(
+    count = n(),
+    mean = mean(TAG, na.rm = TRUE),
+    sd = sd(TAG, na.rm = TRUE)
+  )
+
+```
+``` {r}
+#Pretty graphs of data
+
+library("ggpubr")
+ggboxplot(All_Data, x = "FA", y = "TAG", 
+          color = "FA",
+          ylab = "TAG", xlab = "FA")
+
+ggline(All_Data, x = "FA", y = "TAG", 
+       add = c("mean_se", "jitter"), 
+       ylab = "TAG", xlab = "FA")
+
+```
+``` {r}
+#One-way ANOVA with Tukey multiple pairwise comparisons
+
+res.aov <- aov(TAG ~ FA, data = All_Data)
+summary(res.aov)
+
+TukeyHSD(res.aov)
+
+```
+``` {r}
+#Check ANOVA assumptions (if any tests are significant then worry)
+
+#Homogeneity of variance
+plot(res.aov, 1)
+
+leveneTest(TAG ~ FA, data = All_Data)
+
+#Normality test
+plot(res.aov, 2)
+
+aov_residuals <- residuals(object = res.aov )
+
+shapiro.test(x = aov_residuals )
+
+```
+```{r}
+
+All_Data$FA <- factor(All_Data$FA, levels=c("0","200", "800"))
+
+for (i in 8:ncol(All_Data)) {
+   formula <- as.formula(paste(colnames(All_Data)[i], " ~ FA", sep=""))
+   model <- aov(formula, data = All_Data)
+
+   cat("\n-----\n\n")
+   cat(colnames(All_Data)[i])
+   cat("\n")
+   print(summary(model))
+}
+
+```
+
+``` {r}
+
+#Summary data
+
+group_by(All_Data, FA) %>%
+  summarise(
+    count = n(),
+    mean = mean(Urea, na.rm = TRUE),
+    sd = sd(Urea, na.rm = TRUE)
+  )
+
+```
+``` {r}
+#Pretty graphs of data
+
+library("ggpubr")
+ggboxplot(All_Data, x = "FA", y = "Urea", 
+          color = "FA",
+          ylab = "Urea", xlab = "FA")
+
+ggline(All_Data, x = "FA", y = "Urea", 
+       add = c("mean_se", "jitter"), 
+       ylab = "Urea", xlab = "FA")
+
+```
+``` {r}
+#One-way ANOVA with Tukey multiple pairwise comparisons
+
+res.aov <- aov(Urea ~ FA, data = All_Data)
+summary(res.aov)
+
+TukeyHSD(res.aov)
+
+```
+``` {r}
+#Check ANOVA assumptions (if any tests are significant then worry)
+
+#Homogeneity of variance
+plot(res.aov, 1)
+
+leveneTest(Urea ~ FA, data = All_Data)
+
+#Normality test
+plot(res.aov, 2)
+
+aov_residuals <- residuals(object = res.aov )
+
+shapiro.test(x = aov_residuals )
+```
+
