@@ -16,8 +16,6 @@ library(ggsci)
 library(rstatix)
 library (cowplot)
 
-setwd('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/qPCR')
-
 qPCR_summary <- read_excel("qPCR summary.xlsx", sheet = 3)
 
 qPCR_summary$FA <- as.factor(qPCR_summary$FA)
@@ -34,7 +32,7 @@ axis.text.y = element_text(color = "grey20", size = 16),
 axis.title.x = element_text(color = "grey20", size = 18),
 axis.title.y = element_text(color = "grey20", size = 18),
 plot.title = element_text(color = "grey20", size = 25, face = "bold", hjust = 0.5))
-ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/graphs/LC3.png')
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA-LF-vs-HF/graphs/LC3.png')
 
 ggbarplot(qPCR_summary, x = "FA", "GABARAP",
        add = "mean_se", error.plot = "upper_errorbar", palette = "npg", legend = "none", fill = "FA", xlab = "OPLA Concentration (uM)", ylab = "Deltadelta Ct", title = "GABARAP") +
@@ -44,7 +42,7 @@ axis.text.y = element_text(color = "grey20", size = 16),
 axis.title.x = element_text(color = "grey20", size = 18),
 axis.title.y = element_text(color = "grey20", size = 18),
 plot.title = element_text(color = "grey20", size = 25, face = "bold", hjust = 0.5))
-ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/graphs/GABARAP.png')
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA-LF-vs-HF/graphs/GABARAP.png')
 
 ggbarplot(qPCR_summary, x = "FA", "SQSTM1",
        add = "mean_se", error.plot = "upper_errorbar", palette = "npg", legend = "none", fill = "FA", xlab = "OPLA Concentration (uM)", ylab = "Deltadelta Ct", title = "p62") +
@@ -54,7 +52,7 @@ axis.text.y = element_text(color = "grey20", size = 16),
 axis.title.x = element_text(color = "grey20", size = 18),
 axis.title.y = element_text(color = "grey20", size = 18),
 plot.title = element_text(color = "grey20", size = 25, face = "bold", hjust = 0.5))
-ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/graphs/p62.png')
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA-LF-vs-HF/graphs/p62.png')
 
 ggbarplot(qPCR_summary, x = "FA", "ATG5",
        add = "mean_se", error.plot = "upper_errorbar", palette = "npg", legend = "none", fill = "FA",  xlab = "OPLA Concentration (uM)", ylab = "Deltadelta Ct", title = "ATG5") +
@@ -64,7 +62,7 @@ axis.text.y = element_text(color = "grey20", size = 16),
 axis.title.x = element_text(color = "grey20", size = 18),
 axis.title.y = element_text(color = "grey20", size = 18),
 plot.title = element_text(color = "grey20", size = 25, face = "bold", hjust = 0.5))
-ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/graphs/ATG5.png')
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA-LF-vs-HF/graphs/ATG5.png')
 
 ggbarplot(qPCR_summary, x = "FA", "ATG7",
        add = "mean_se", error.plot = "upper_errorbar", palette = "npg", legend = "none", fill = "FA", xlab = "OPLA Concentration (uM)", ylab = "Deltadelta Ct", title = "ATG7") +
@@ -74,7 +72,7 @@ axis.text.y = element_text(color = "grey20", size = 16),
 axis.title.x = element_text(color = "grey20", size = 18),
 axis.title.y = element_text(color = "grey20", size = 18),
 plot.title = element_text(color = "grey20", size = 25, face = "bold", hjust = 0.5))
-ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/graphs/ATG7.png')
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA-LF-vs-HF/graphs/ATG7.png')
 
 ggbarplot(qPCR_summary, x = "FA", "ATG10",
        add = "mean_se", error.plot = "upper_errorbar", palette = "npg", legend = "none", fill = "FA",   xlab = "OPLA Concentration (uM)", ylab = "Deltadelta Ct", title = "ATG10") +
@@ -84,7 +82,7 @@ axis.text.y = element_text(color = "grey20", size = 16),
 axis.title.x = element_text(color = "grey20", size = 18),
 axis.title.y = element_text(color = "grey20", size = 18),
 plot.title = element_text(color = "grey20", size = 25, face = "bold", hjust = 0.5))
-ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/graphs/ATG10.png')
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA-LF-vs-HF/graphs/ATG10.png')
 
 ggbarplot(qPCR_summary, x = "FA", "MAPK8",
        add = "mean_se", error.plot = "upper_errorbar", palette = "npg", legend = "none", fill = "FA",   xlab = "OPLA Concentration (uM)", ylab = "Deltadelta Ct", title = "JNK1") +
@@ -94,7 +92,7 @@ axis.text.y = element_text(color = "grey20", size = 16),
 axis.title.x = element_text(color = "grey20", size = 18),
 axis.title.y = element_text(color = "grey20", size = 18),
 plot.title = element_text(color = "grey20", size = 25, face = "bold", hjust = 0.5))
-ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/graphs/MAPK8.png')
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA-LF-vs-HF/graphs/MAPK8.png')
 
 ggbarplot(qPCR_summary, x = "FA", "MAPK9",
        add = "mean_se", error.plot = "upper_errorbar", palette = "npg", legend = "none", fill = "FA",   xlab = "OPLA Concentration (uM)", ylab = "Deltadelta Ct", title = "JNK2") +
@@ -104,7 +102,7 @@ axis.text.y = element_text(color = "grey20", size = 16),
 axis.title.x = element_text(color = "grey20", size = 18),
 axis.title.y = element_text(color = "grey20", size = 18),
 plot.title = element_text(color = "grey20", size = 25, face = "bold", hjust = 0.5))
-ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/graphs/MAPK9.png')
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA-LF-vs-HF/graphs/MAPK9.png')
 
 ggbarplot(qPCR_summary, x = "FA", "NFKB1",
        add = "mean_se", error.plot = "upper_errorbar", palette = "npg", legend = "none", fill = "FA",   xlab = "OPLA Concentration (uM)", ylab = "Deltadelta Ct", title = "NFKB1") +
@@ -114,6 +112,6 @@ axis.text.y = element_text(color = "grey20", size = 16),
 axis.title.x = element_text(color = "grey20", size = 18),
 axis.title.y = element_text(color = "grey20", size = 18),
 plot.title = element_text(color = "grey20", size = 25, face = "bold", hjust = 0.5))
-ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA LF vs HF/graphs/NFKB1.png')
+ggsave('C:/Users/fwestcott/OneDrive - Nexus365/Desktop/Results/OPLA-LF-vs-HF/graphs/NFKB1.png')
 ```
 
