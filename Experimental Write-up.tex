@@ -1,0 +1,84 @@
+\documentclass[footheight=20pt, footsepline, headheight=20pt, headsepline]{scrartcl}
+%
+\usepackage[utf8]{inputenc} % below are various important packages
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{textcomp} 
+\usepackage{latexsym}
+\usepackage{amssymb}	
+\usepackage{amsfonts}
+\usepackage{theorem}
+\usepackage{graphicx}
+\usepackage{scrlayer-scrpage}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{framed}
+\usepackage{hyperref} 
+\usepackage{pgf,tikz,pgfplots} % possibility to insert geogebra graphs
+\pgfplotsset{compat=1.15}\usetikzlibrary{arrows} % part of geogebra package
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{xurl}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{float}
+
+% Add to length for wider margins
+\addtolength{\textwidth}{3cm} % right to margin
+\addtolength{\hoffset}{-1.6cm} % left to margin
+\addtolength{\voffset}{-2cm} % to top
+\addtolength{\textheight}{6.5cm} % to bottom
+
+% Headers-Footers
+\definecolor{gro}{gray}{0.6} % define color
+\setkomafont{pagehead}{\normalfont\sffamily} % define header
+\setkomafont{pagefoot}{\normalfont\sffamily} % define footer
+\addtokomafont{headsepline}{\color{gro}} % define header horizontal line
+\addtokomafont{footsepline}{\color{gro}} % define footer horizontal line
+	\chead{\color{gro} Results Write-up} % header (c=center)
+	\ohead{\color{gro} Felix Westcott} % header (o=outer=right)
+	\ifoot{\color{gro} } % footer (i=inner=left)
+	\cfoot{\color{gro} - {\textbf\thepage} -} % footer (c=center)
+	\ofoot{\color{gro} } % footer (o=outer=right)
+
+
+\renewcommand{\familydefault}{\sfdefault} % font
+\linespread{1.2} % increase line spacing
+
+%---------------------------------------------------------------------------
+\begin{document} % every document starts with \begin{document}
+%\doublespacing
+\title{OPLA LF vs HF \\[1cm]  \large {Experimental Write-up \\[1cm]}} 
+\author{Felix Westcott}
+\maketitle
+%---------------------------------------------------------------------------
+\newpage
+% The level that gets a number:
+\setcounter{secnumdepth}{2}
+% The level that shows up in the ToC:
+\setcounter{tocdepth}{2}
+\tableofcontents
+%---------------------------------------------------------------------------
+\newpage
+\section{Intro}
+\section{Methods}
+\section{Results}
+
+
+
+\section{Discussion}
+
+
+
+%---------------------------------------------------------------------------
+\newpage
+\section{Bibliography}
+\begin{itemize}
+    \item Stephenson, M. (2020, December 31). How to calculate darts averages [formulas, chart, pro tips]. DartsGuide. \url{https://dartsguide.net/guides/how-to-calculate-darts-average/}. Accessed 28 May 2021 
+    \item Phillips, J. (2018, June 12). Stats analysis: To switch or not to switch? PDC. \url{https://www.pdc.tv/news/2018/06/12/stats-analysis-switch-or-not-switch}. Accessed 28 May 2021 
+    \item Chen, L. (2020, July 8). How to interpret and calculate "X Times more likely" statistics. Towards Data Science. \url{https://towardsdatascience.com/how-to-interpret-and-calculate-x-times-more-likely-statistics-daf/538a9e0f4}. Accessed 27 May 2021 
+    \item The poisson distribution. \url{https://www.le.ac.uk/users/dsgp1/COURSES/LEISTATS/poisson.pdf}. Accessed 28 November 2021 
+\end{itemize}
+
+\end{document}
