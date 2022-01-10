@@ -5,24 +5,19 @@
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
 \usepackage{textcomp} 
-\usepackage{latexsym}
-\usepackage{amssymb}	
 \usepackage{amsfonts}
-\usepackage{theorem}
 \usepackage{graphicx}
 \usepackage{scrlayer-scrpage}
 \usepackage{xcolor}
 \usepackage{setspace}
 \usepackage{framed}
 \usepackage{hyperref} 
-\usepackage{pgf,tikz,pgfplots} % possibility to insert geogebra graphs
-\pgfplotsset{compat=1.15}\usetikzlibrary{arrows} % part of geogebra package
-\usepackage{multicol}
-\usepackage{multirow}
 \usepackage{xurl}
 \usepackage{tabularx}
 \usepackage{enumitem}
 \usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
 
 % Add to length for wider margins
 \addtolength{\textwidth}{3cm} % right to margin
@@ -36,7 +31,7 @@
 \setkomafont{pagefoot}{\normalfont\sffamily} % define footer
 \addtokomafont{headsepline}{\color{gro}} % define header horizontal line
 \addtokomafont{footsepline}{\color{gro}} % define footer horizontal line
-	\chead{\color{gro} Results Write-up} % header (c=center)
+	\chead{\color{gro} OPLA LF vs HF} % header (c=center)
 	\ohead{\color{gro} Felix Westcott} % header (o=outer=right)
 	\ifoot{\color{gro} } % footer (i=inner=left)
 	\cfoot{\color{gro} - {\textbf\thepage} -} % footer (c=center)
@@ -73,22 +68,111 @@ All statistical analysis was performed in R version 1.14. One-way ANOVAs were pe
 \section{Results}
 \subsection{Intracellular triacylglyceride content}
 
-Intracellular triacylglyceride (TAG) content was measured through lipid extraction followed by analysis on gas chromatography. Cells cultured in 800uM conentration of OPLA had significantly higher intracellular TAG than both 200uM and control. 
+Intracellular triacylglyceride (TAG) content was measured through lipid extraction followed by analysis on gas chromatography. Cells cultured in 800uM conentration of OPLA had significantly higher intracellular TAG than both 200uM and control (\textit{fig.\ref{fig:TAG}}). 
 
-\begin{figure}
+\begin{figure}[h]
 \centering\includegraphics[width=0.7\textwidth]{Graphs/TAG.png}
 \caption[Intracellular triglyceride content and OPLA concentration.]{Intracellular triglyceride content and OPLA concentration.  Representative of three biological repeats (n=3) carried out in technical triplicate.}
-\label{fig:fourchamber}\end{figure}
+\label{fig:TAG}\end{figure}
 
 \subsection{Autophagic gene expression}
 
+To measure the gene expression of gene of interest qPCR was carried out. No significant change in gene expression was seen for the autophagic markers LC3, GABARAP or p62 across the three conditions (\textit{fig.\ref{fig:Autophagic marker genes}}).
+
+\begin{figure}[h]
+     \centering
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Graphs/LC3.png}
+         \caption{}
+         \label{fig:LC3}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Graphs/GABARAP.png}
+         \caption{}
+         \label{fig:GABARAP}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Graphs/p62.png}
+         \caption{}
+         \label{fig:p62}
+     \end{subfigure}
+        \caption{Gene expression of markers of autophagy as measured by qPCR. Representative of three biological repeats (n=3) carried out in technical triplicate.}
+        \label{fig:Autophagic marker genes}
+\end{figure}
+
+Similarly, no significant change in expression was found in ATG5, ATG7 or ATG10 across the three conditions (\textit{fig.\ref{fig:ATG genes}}).
+
+\begin{figure}[h]
+     \centering
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Graphs/ATG5.png}
+         \caption{}
+         \label{fig:ATG5}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Graphs/ATG7.png}
+         \caption{}
+         \label{fig:ATG7}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Graphs/ATG10.png}
+         \caption{}
+         \label{fig:ATG10}
+     \end{subfigure}
+        \caption{Autophagic gene expression of ATG5 as measured by qPCR. Representative of three biological repeats (n=3) carried out in technical triplicate.}
+        \label{fig:ATG genes}
+\end{figure}
+
+\newpage
+\subsection{Inflammatory gene expression}
+
+No significant chance was seen in inflammatory gene expression across OPLA concentrations (\textit{fig.\ref{fig:Inflammatory genes}})
+
+\begin{figure}[h]
+     \centering
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Graphs/NFKB1.png}
+         \caption{}
+         \label{fig:NFKB1}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Graphs/MAPK8.png}
+         \caption{}
+         \label{fig:MAPK8}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Graphs/MAPK9.png}
+         \caption{}
+         \label{fig:MAPK9}
+     \end{subfigure}
+        \caption{Inflammatory gene expression as measured by qPCR. Representative of three biological repeats (n=3) carried out in technical triplicate.}
+        \label{fig:Inflammatory genes}
+\end{figure}
 
 
 %---------------------------------------------------------------------------
 \newpage
 \section{Discussion}
 
+The primary aim for this experiment was to validate the model being used. As shown in \textit{\ref{fig:TAG}} the huh7 cells did accumulate intracellular TAG when treated with media of increasing unsaturated fat concentrations. This suggests that huh7 cells cultured in media with 800uM OPLA may be a good NAFLD model. 
 
+Autophagy is not usually measured through gene expression and so it is unsurprising that there were no significant differences observed across OPLA concentrations. However it was encouraging to see a non-significant decrease in expression in all three markers of autophagy during OPLA treatment (most notably LC3 and p62) as well as two of the three ATG gene measured (ATG5 and ATG7). A decrease in expression of these genes was also seen in the RNAseq data. 10 showed a non-significant increase at 800uM OPLA concentration which was interestingly also seen in the RNAseq data. Overall, although statistically non-significant, this data does point towards a decrease in autophagy with intrahepatic fat accumulation.  
+ 
 
 %---------------------------------------------------------------------------
 \newpage
