@@ -1,0 +1,190 @@
+\documentclass[footheight=20pt, footsepline, headheight=20pt, headsepline]{scrartcl}
+%
+\usepackage[utf8]{inputenc} % below are various important packages
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{textcomp} 
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{scrlayer-scrpage}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{framed}
+\usepackage{hyperref} 
+\usepackage{xurl}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Add to length for wider margins
+\addtolength{\textwidth}{3cm} % right to margin
+\addtolength{\hoffset}{-1.6cm} % left to margin
+\addtolength{\voffset}{-2cm} % to top
+\addtolength{\textheight}{6.5cm} % to bottom
+
+% Headers-Footers
+\definecolor{gro}{gray}{0.6} % define color
+\setkomafont{pagehead}{\normalfont\sffamily} % define header
+\setkomafont{pagefoot}{\normalfont\sffamily} % define footer
+\addtokomafont{headsepline}{\color{gro}} % define header horizontal line
+\addtokomafont{footsepline}{\color{gro}} % define footer horizontal line
+	\chead{\color{gro} OPLA LF vs HF} % header (c=center)
+	\ohead{\color{gro} Felix Westcott} % header (o=outer=right)
+	\ifoot{\color{gro} } % footer (i=inner=left)
+	\cfoot{\color{gro} - {\textbf\thepage} -} % footer (c=center)
+	\ofoot{\color{gro} } % footer (o=outer=right)
+
+
+\renewcommand{\familydefault}{\sfdefault} % font
+\linespread{1.2} % increase line spacing
+
+%---------------------------------------------------------------------------
+\begin{document} % every document starts with \begin{document}
+%\doublespacing
+\title{OPLA LF vs HF \\[1cm]  \large {Experimental Write-up \\[1cm]}} 
+\author{Felix Westcott}
+\maketitle
+%---------------------------------------------------------------------------
+\newpage
+% The level that gets a number:
+\setcounter{secnumdepth}{2}
+% The level that shows up in the ToC:
+\setcounter{tocdepth}{2}
+\tableofcontents
+%---------------------------------------------------------------------------
+\newpage
+
+\section{Methods}
+\subsection{Statistical analysis}
+
+All statistical analysis was performed in R version 1.14. One-way ANOVAs were performed for all variables against OPLA concentration followed by post-hoc pairwise T test comparisons (if appropriate) with Bonferroni adjustment.
+
+%---------------------------------------------------------------------------
+\newpage
+
+\section{Results}
+\subsection{Intracellular triacylglyceride content}
+
+Intracellular triacylglyceride (TAG) content was measured through lipid extraction followed by analysis on gas chromatography. Cells cultured in 800uM conentration of OPLA had significantly higher intracellular TAG than both 200uM and control (\textit{fig.\ref{fig:TAG}}). 
+
+\begin{figure}[h]
+\centering\includegraphics[width=0.7\textwidth]{Graphs/TAG.png}
+\caption{Intracellular triglyceride content and OPLA concentration.  Representative of three biological repeats (n=3) carried out in technical triplicate.}
+\label{fig:TAG}\end{figure}
+
+\subsection{Autophagic gene expression}
+
+To measure the gene expression of gene of interest qPCR was carried out. No significant change in gene expression was seen for the autophagic markers LC3, GABARAP or p62 across the three conditions (\textit{fig.\ref{fig:Autophagic marker genes}}).
+
+\begin{figure}[h]
+     \centering
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Graphs/LC3.png}
+         \caption{}
+         \label{fig:LC3}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Graphs/GABARAP.png}
+         \caption{}
+         \label{fig:GABARAP}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Graphs/p62.png}
+         \caption{}
+         \label{fig:p62}
+     \end{subfigure}
+        \caption{Gene expression of markers of autophagy as measured by qPCR. Representative of three biological repeats (n=3) carried out in technical triplicate.}
+        \label{fig:Autophagic marker genes}
+\end{figure}
+
+Similarly, no significant change in expression was found in ATG5, ATG7 or ATG10 across the three conditions (\textit{fig.\ref{fig:ATG genes}}).
+
+\begin{figure}[h]
+     \centering
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Graphs/ATG5.png}
+         \caption{}
+         \label{fig:ATG5}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Graphs/ATG7.png}
+         \caption{}
+         \label{fig:ATG7}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Graphs/ATG10.png}
+         \caption{}
+         \label{fig:ATG10}
+     \end{subfigure}
+        \caption{Autophagic gene expression of ATG5 as measured by qPCR. Representative of three biological repeats (n=3) carried out in technical triplicate.}
+        \label{fig:ATG genes}
+\end{figure}
+
+\newpage
+\subsection{LC3 protein expression}
+
+As a pilot test, one round of this experiment was used to western blot for LC3. Statistically analysis obviously could not be carried out on the results but OPLA 200uM and 800uM did show a decrease in LC3-II : LC3-I ratio indicative of a decrease in autophagy (\textit{fig.\ref{fig:LC3 WB}}).
+
+\begin{figure}[h]
+\centering\includegraphics[width=0.7\textwidth]{Western Blot Pilot/LC3 Ratio.png}
+\caption{LC3 protein expression as measured by western blot. Representative of one pilot biological repeats (n=1) carried out in technical triplicate.}
+\label{fig:LC3 WB}\end{figure}
+
+
+\subsection{Inflammatory gene expression}
+
+No significant chance was seen in inflammatory gene expression across OPLA concentrations (\textit{fig.\ref{fig:Inflammatory genes}})
+
+\begin{figure}[h]
+     \centering
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Graphs/NFKB1.png}
+         \caption{}
+         \label{fig:NFKB1}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Graphs/MAPK8.png}
+         \caption{}
+         \label{fig:MAPK8}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Graphs/MAPK9.png}
+         \caption{}
+         \label{fig:MAPK9}
+     \end{subfigure}
+        \caption{Inflammatory gene expression as measured by qPCR. Representative of three biological repeats (n=3) carried out in technical triplicate.}
+        \label{fig:Inflammatory genes}
+\end{figure}
+
+
+%---------------------------------------------------------------------------
+\newpage
+\section{Discussion}
+
+The primary aim for this experiment was to validate the model being used. As shown in \textit{\ref{fig:TAG}} the huh7 cells did accumulate intracellular TAG when treated with media of increasing unsaturated fat concentrations. This suggests that huh7 cells cultured in media with 800uM OPLA may be a good NAFLD model. 
+
+Autophagy is not usually measured through gene expression and so it is unsurprising that there were no significant differences observed across OPLA concentrations. However it was encouraging to see a non-significant decrease in expression in all three markers of autophagy during OPLA treatment (most notably LC3 and p62) as well as two of the three ATG gene measured (ATG5 and ATG7). A decrease in expression of these genes was also seen in the RNAseq data. ATG10 showed a non-significant increase at 800uM OPLA concentration which was interestingly also seen in the RNAseq data. A decrease in LC3-II : LC3-I ratio was also shown in the pilot western blot experiment and therefore, although not statistically significant, this data does point towards a decrease in autophagy with intrahepatic fat accumulation. 
+
+Similar results were seen with inflammatory gene expression with no significant differences but a slight non-significant decrease with increasing OPLA concentrations. This suggests that the fat accumulation has not triggered any hepatocellular inflammation. Given research evidence that saturated fatty acids may be the root cause of inflammation associated with NAFLD it is unsurprising that OPLA, an unsaturate fatty acid mix, brought no change in inflammatory gene expression. It will be very interesting to see if the same results are true for POLA. It is thought that OPLA models genetic, begnin, NAFLD and POLA models environmental, inflammatory, NALFD so it will be interesting to test this hypothesis. 
+
+Another potential hypothesis from these results is that the control cells are in a slight starvation state hence the higher autophagy and inflammatory levels. By this reasoning it would be tempting to think that OPLA concentrations have not been pushed high enough to see a significant difference in autophagy or inflammatory gene expression however work from Pippa's thesis (and papers) have shown that a concentration of 800uM OPLA was sufficient enough to represent pathogenic NAFLD and higher concentrations were practically much harder to experimentally achieve. Therefore it appears that a huh7 cells cultured in a media rich in unsaturated fatty acids may show a slight decrease in autophagy but no change in inflammatory levels. 
+
+\end{document}
