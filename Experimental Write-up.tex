@@ -72,7 +72,7 @@ Intracellular triacylglyceride (TAG) content was measured through lipid extracti
 
 \begin{figure}[h]
 \centering\includegraphics[width=0.7\textwidth]{Graphs/TAG.png}
-\caption[Intracellular triglyceride content and OPLA concentration.]{Intracellular triglyceride content and OPLA concentration.  Representative of three biological repeats (n=3) carried out in technical triplicate.}
+\caption{Intracellular triglyceride content and OPLA concentration.  Representative of three biological repeats (n=3) carried out in technical triplicate.}
 \label{fig:TAG}\end{figure}
 
 \subsection{Autophagic gene expression}
@@ -134,6 +134,16 @@ Similarly, no significant change in expression was found in ATG5, ATG7 or ATG10 
 \end{figure}
 
 \newpage
+\subsection{LC3 protein expression}
+
+As a pilot test, one round of this experiment was used to western blot for LC3. Statistically analysis obviously could not be carried out on the results but OPLA 200uM and 800uM did show a decrease in LC3-II : LC3-I ratio indicative of a decrease in autophagy (\textit{fig.\ref{fig:LC3 WB}}).
+
+\begin{figure}[h]
+\centering\includegraphics[width=0.7\textwidth]{Western Blot Pilot/LC3 Ratio.png}
+\caption{LC3 protein expression as measured by western blot. Representative of one pilot biological repeats (n=1) carried out in technical triplicate.}
+\label{fig:LC3 WB}\end{figure}
+
+
 \subsection{Inflammatory gene expression}
 
 No significant chance was seen in inflammatory gene expression across OPLA concentrations (\textit{fig.\ref{fig:Inflammatory genes}})
@@ -171,17 +181,10 @@ No significant chance was seen in inflammatory gene expression across OPLA conce
 
 The primary aim for this experiment was to validate the model being used. As shown in \textit{\ref{fig:TAG}} the huh7 cells did accumulate intracellular TAG when treated with media of increasing unsaturated fat concentrations. This suggests that huh7 cells cultured in media with 800uM OPLA may be a good NAFLD model. 
 
-Autophagy is not usually measured through gene expression and so it is unsurprising that there were no significant differences observed across OPLA concentrations. However it was encouraging to see a non-significant decrease in expression in all three markers of autophagy during OPLA treatment (most notably LC3 and p62) as well as two of the three ATG gene measured (ATG5 and ATG7). A decrease in expression of these genes was also seen in the RNAseq data. 10 showed a non-significant increase at 800uM OPLA concentration which was interestingly also seen in the RNAseq data. Overall, although statistically non-significant, this data does point towards a decrease in autophagy with intrahepatic fat accumulation.  
- 
+Autophagy is not usually measured through gene expression and so it is unsurprising that there were no significant differences observed across OPLA concentrations. However it was encouraging to see a non-significant decrease in expression in all three markers of autophagy during OPLA treatment (most notably LC3 and p62) as well as two of the three ATG gene measured (ATG5 and ATG7). A decrease in expression of these genes was also seen in the RNAseq data. ATG10 showed a non-significant increase at 800uM OPLA concentration which was interestingly also seen in the RNAseq data. A decrease in LC3-II : LC3-I ratio was also shown in the pilot western blot experiment and therefore, although not statistically significant, this data does point towards a decrease in autophagy with intrahepatic fat accumulation. 
 
-%---------------------------------------------------------------------------
-\newpage
-\section{Bibliography}
-\begin{itemize}
-    \item Stephenson, M. (2020, December 31). How to calculate darts averages [formulas, chart, pro tips]. DartsGuide. \url{https://dartsguide.net/guides/how-to-calculate-darts-average/}. Accessed 28 May 2021 
-    \item Phillips, J. (2018, June 12). Stats analysis: To switch or not to switch? PDC. \url{https://www.pdc.tv/news/2018/06/12/stats-analysis-switch-or-not-switch}. Accessed 28 May 2021 
-    \item Chen, L. (2020, July 8). How to interpret and calculate "X Times more likely" statistics. Towards Data Science. \url{https://towardsdatascience.com/how-to-interpret-and-calculate-x-times-more-likely-statistics-daf/538a9e0f4}. Accessed 27 May 2021 
-    \item The poisson distribution. \url{https://www.le.ac.uk/users/dsgp1/COURSES/LEISTATS/poisson.pdf}. Accessed 28 November 2021 
-\end{itemize}
+Similar results were seen with inflammatory gene expression with no significant differences but a slight non-significant decrease with increasing OPLA concentrations. This suggests that the fat accumulation has not triggered any hepatocellular inflammation. Given research evidence that saturated fatty acids may be the root cause of inflammation associated with NAFLD it is unsurprising that OPLA, an unsaturate fatty acid mix, brought no change in inflammatory gene expression. It will be very interesting to see if the same results are true for POLA. It is thought that OPLA models genetic, begnin, NAFLD and POLA models environmental, inflammatory, NALFD so it will be interesting to test this hypothesis. 
+
+Another potential hypothesis from these results is that the control cells are in a slight starvation state hence the higher autophagy and inflammatory levels. By this reasoning it would be tempting to think that OPLA concentrations have not been pushed high enough to see a significant difference in autophagy or inflammatory gene expression however work from Pippa's thesis (and papers) have shown that a concentration of 800uM OPLA was sufficient enough to represent pathogenic NAFLD and higher concentrations were practically much harder to experimentally achieve. Therefore it appears that a huh7 cells cultured in a media rich in unsaturated fatty acids may show a slight decrease in autophagy but no change in inflammatory levels. 
 
 \end{document}
